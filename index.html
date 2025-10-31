@@ -319,7 +319,7 @@
                 </div>
                 
                 <div class="stat-card bg-ecde-blue text-white p-6 rounded-lg shadow text-center">
-                    <div class="text-3xl font-bold mb-2">4,500+</div>
+                    <div class="text-3xl font-bold mb-2">10,000+</div>
                     <div class="text-lg">Enrolled Learners</div>
                     <i class="fas fa-child text-ecde-yellow text-2xl mt-4"></i>
                 </div>
@@ -429,7 +429,7 @@
                     <div class="stat-label">Schools</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">4,500+</div>
+                    <div class="stat-number">10,000+</div>
                     <div class="stat-label">Learners</div>
                 </div>
                 <div class="stat-item">
@@ -865,7 +865,7 @@
                     if (entry.isIntersecting) {
                         const statElements = entry.target.querySelectorAll('.stat-card .text-3xl');
                         statElements.forEach((el, index) => {
-                            const values = [90, 103, 4500, 8];
+                            const values = [90, 103, 4500+, 8];
                             setTimeout(() => {
                                 animateValue(el, 0, values[index], 2000);
                             }, index * 300);
