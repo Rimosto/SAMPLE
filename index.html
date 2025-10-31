@@ -46,11 +46,6 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .chart-container {
-            height: 300px;
-            position: relative;
-        }
-        
         .floating-nav {
             position: sticky;
             top: 0;
@@ -85,6 +80,40 @@
                 height: 40px;
             }
         }
+        
+        .ward-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .school-list.open {
+            max-height: 500px;
+        }
+        
+        .ward-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .school-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .school-item:last-child {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
@@ -94,10 +123,10 @@
             <div class="flex items-center space-x-4">
                 <!-- Kenya and Nakuru County Logos -->
                 <div class="flex items-center space-x-2">
-                    <div class="county-logo bg-white rounded-full p-1 flex items-center justify-center">
+                    <div class="county-logo bg-white rounded-full p-1 flex items-center justify-center border-2 border-ecde-yellow">
                         <div class="text-ecde-green font-bold text-xs text-center px-1">NAKURU<br>COUNTY</div>
                     </div>
-                    <div class="county-logo bg-white rounded-full p-1 flex items-center justify-center">
+                    <div class="county-logo bg-white rounded-full p-1 flex items-center justify-center border-2 border-ecde-yellow">
                         <div class="text-ecde-green font-bold text-xs text-center px-1">REPUBLIC<br>OF KENYA</div>
                     </div>
                 </div>
@@ -111,8 +140,7 @@
             <div class="hidden md:flex space-x-6">
                 <a href="#home" class="hover:text-ecde-yellow transition-colors">Home</a>
                 <a href="#about" class="hover:text-ecde-yellow transition-colors">About</a>
-                <a href="#centers" class="hover:text-ecde-yellow transition-colors">Centers</a>
-                <a href="#statistics" class="hover:text-ecde-yellow transition-colors">Statistics</a>
+                <a href="#wards" class="hover:text-ecde-yellow transition-colors">Wards & Schools</a>
                 <a href="#resources" class="hover:text-ecde-yellow transition-colors">Resources</a>
                 <a href="#contact" class="hover:text-ecde-yellow transition-colors">Contact</a>
             </div>
@@ -132,8 +160,7 @@
             <div class="flex flex-col space-y-3">
                 <a href="#home" class="hover:text-ecde-yellow transition-colors py-2">Home</a>
                 <a href="#about" class="hover:text-ecde-yellow transition-colors py-2">About</a>
-                <a href="#centers" class="hover:text-ecde-yellow transition-colors py-2">Centers</a>
-                <a href="#statistics" class="hover:text-ecde-yellow transition-colors py-2">Statistics</a>
+                <a href="#wards" class="hover:text-ecde-yellow transition-colors py-2">Wards & Schools</a>
                 <a href="#resources" class="hover:text-ecde-yellow transition-colors py-2">Resources</a>
                 <a href="#contact" class="hover:text-ecde-yellow transition-colors py-2">Contact</a>
             </div>
@@ -161,19 +188,19 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="stat-card bg-ecde-green text-white p-6 rounded-lg shadow text-center">
-                    <div class="text-3xl font-bold mb-2">42</div>
-                    <div class="text-lg">ECDE Centers</div>
+                    <div class="text-3xl font-bold mb-2">90</div>
+                    <div class="text-lg">ECDE Schools</div>
                     <i class="fas fa-school text-ecde-yellow text-2xl mt-4"></i>
                 </div>
                 
                 <div class="stat-card bg-ecde-light text-white p-6 rounded-lg shadow text-center">
-                    <div class="text-3xl font-bold mb-2">103</div>
+                    <div class="text-3xl font-bold mb-2">180</div>
                     <div class="text-lg">Trained Teachers</div>
                     <i class="fas fa-chalkboard-teacher text-ecde-yellow text-2xl mt-4"></i>
                 </div>
                 
                 <div class="stat-card bg-ecde-blue text-white p-6 rounded-lg shadow text-center">
-                    <div class="text-3xl font-bold mb-2">2,450</div>
+                    <div class="text-3xl font-bold mb-2">4,500</div>
                     <div class="text-lg">Enrolled Learners</div>
                     <i class="fas fa-child text-ecde-yellow text-2xl mt-4"></i>
                 </div>
@@ -266,159 +293,180 @@
         </div>
     </section>
 
-    <!-- ECDE Centers Section -->
-    <section id="centers" class="py-16 bg-white dark:bg-gray-900">
+    <!-- Wards & Schools Section -->
+    <section id="wards" class="py-16 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4 text-ecde-green dark:text-ecde-yellow">Our ECDE Centers</h2>
-            <p class="text-center max-w-2xl mx-auto mb-12">We operate 42 ECDE centers across Naivasha Sub-County, ensuring access to early education in every ward.</p>
+            <h2 class="text-3xl font-bold text-center mb-4 text-ecde-green dark:text-ecde-yellow">Wards & ECDE Schools</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12">We operate 90 ECDE schools across 8 wards in Naivasha Sub-County.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Center 1 -->
-                <div class="ecde-center-card bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow">
-                    <div class="h-48 bg-ecde-green flex items-center justify-center">
-                        <i class="fas fa-school text-white text-6xl"></i>
+            <div class="space-y-6">
+                <!-- Ward 1 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools1')">
+                        <h3 class="text-xl font-bold">Kihoto Ward (12 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon1"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Lakeview ECDE Center</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Located near Lake Naivasha, this center serves 85 learners with modern facilities.</p>
-                        <div class="flex justify-between text-sm">
-                            <span class="flex items-center">
-                                <i class="fas fa-child mr-1 text-ecde-green"></i> 85 Learners
-                            </span>
-                            <span class="flex items-center">
-                                <i class="fas fa-user-graduate mr-1 text-ecde-green"></i> 4 Teachers
-                            </span>
-                        </div>
+                    <div class="school-list mt-4" id="schools1">
+                        <div class="school-item">Kihoto Primary ECDE</div>
+                        <div class="school-item">Lakeview ECDE Center</div>
+                        <div class="school-item">Karunga ECDE</div>
+                        <div class="school-item">Moi Ndabi ECDE</div>
+                        <div class="school-item">Kiangombe ECDE</div>
+                        <div class="school-item">Kwa Muhia ECDE</div>
+                        <div class="school-item">Kwa Mbugua ECDE</div>
+                        <div class="school-item">Kiamunyeki ECDE</div>
+                        <div class="school-item">Kiangweti ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
                     </div>
                 </div>
                 
-                <!-- Center 2 -->
-                <div class="ecde-center-card bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow">
-                    <div class="h-48 bg-ecde-light flex items-center justify-center">
-                        <i class="fas fa-school text-white text-6xl"></i>
+                <!-- Ward 2 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools2')">
+                        <h3 class="text-xl font-bold">Karagita Ward (11 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon2"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Karagita ECDE Center</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Serving the Karagita community with a focus on inclusive education for all learners.</p>
-                        <div class="flex justify-between text-sm">
-                            <span class="flex items-center">
-                                <i class="fas fa-child mr-1 text-ecde-green"></i> 72 Learners
-                            </span>
-                            <span class="flex items-center">
-                                <i class="fas fa-user-graduate mr-1 text-ecde-green"></i> 3 Teachers
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Center 3 -->
-                <div class="ecde-center-card bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow">
-                    <div class="h-48 bg-ecde-blue flex items-center justify-center">
-                        <i class="fas fa-school text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Maella ECDE Center</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">A model center with innovative learning spaces and parental involvement programs.</p>
-                        <div class="flex justify-between text-sm">
-                            <span class="flex items-center">
-                                <i class="fas fa-child mr-1 text-ecde-green"></i> 94 Learners
-                            </span>
-                            <span class="flex items-center">
-                                <i class="fas fa-user-graduate mr-1 text-ecde-green"></i> 5 Teachers
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="inline-flex items-center bg-ecde-green text-white px-6 py-3 rounded-full font-semibold hover:bg-ecde-light transition-colors">
-                    View All Centers <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section id="statistics" class="py-16 bg-gray-50 dark:bg-gray-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-ecde-green dark:text-ecde-yellow">ECDE Statistics & Data</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Enrollment Trends</h3>
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-                        <div class="chart-container">
-                            <!-- Simple bar chart using CSS -->
-                            <div class="flex items-end justify-between h-48 mt-8">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 bg-ecde-green rounded-t" style="height: 70%;"></div>
-                                    <div class="mt-2 text-sm">2019</div>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 bg-ecde-green rounded-t" style="height: 75%;"></div>
-                                    <div class="mt-2 text-sm">2020</div>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 bg-ecde-green rounded-t" style="height: 80%;"></div>
-                                    <div class="mt-2 text-sm">2021</div>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 bg-ecde-green rounded-t" style="height: 85%;"></div>
-                                    <div class="mt-2 text-sm">2022</div>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 bg-ecde-yellow rounded-t" style="height: 92%;"></div>
-                                    <div class="mt-2 text-sm">2023</div>
-                                </div>
-                            </div>
-                            <div class="text-center mt-4 font-semibold">Yearly Enrollment Growth</div>
-                        </div>
+                    <div class="school-list mt-4" id="schools2">
+                        <div class="school-item">Karagita Primary ECDE</div>
+                        <div class="school-item">Kamere ECDE Center</div>
+                        <div class="school-item">Kwa Kariuki ECDE</div>
+                        <div class="school-item">Kwa Njenga ECDE</div>
+                        <div class="school-item">Kwa Njoroge ECDE</div>
+                        <div class="school-item">Kwa Gitau ECDE</div>
+                        <div class="school-item">Kwa Mwangi ECDE</div>
+                        <div class="school-item">Kwa Kimani ECDE</div>
+                        <div class="school-item">Kwa Waweru ECDE</div>
+                        <div class="school-item">Kwa Kamau ECDE</div>
+                        <div class="school-item">Kwa Nyambura ECDE</div>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Current Status</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Teacher Training Completion</span>
-                                <span>92%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-4">
-                                <div class="bg-ecde-green h-4 rounded-full" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Center Infrastructure Quality</span>
-                                <span>78%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-4">
-                                <div class="bg-ecde-light h-4 rounded-full" style="width: 78%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Parental Involvement</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-4">
-                                <div class="bg-ecde-blue h-4 rounded-full" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Learning Materials Availability</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-4">
-                                <div class="bg-ecde-yellow h-4 rounded-full" style="width: 88%"></div>
-                            </div>
-                        </div>
+                <!-- Ward 3 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools3')">
+                        <h3 class="text-xl font-bold">Maella Ward (13 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon3"></i>
+                    </div>
+                    <div class="school-list mt-4" id="schools3">
+                        <div class="school-item">Maella Primary ECDE</div>
+                        <div class="school-item">Kiangwachi ECDE</div>
+                        <div class="school-item">Kiamathaga ECDE</div>
+                        <div class="school-item">Kiamunyeki ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
+                        <div class="school-item">Kiamathambo ECDE</div>
+                        <div class="school-item">Kiamathare ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                        <div class="school-item">Kiamathiriu ECDE</div>
+                        <div class="school-item">Kiamathua ECDE</div>
+                        <div class="school-item">Kiamathugu ECDE</div>
+                    </div>
+                </div>
+                
+                <!-- Ward 4 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools4')">
+                        <h3 class="text-xl font-bold">Lake View Ward (10 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon4"></i>
+                    </div>
+                    <div class="school-list mt-4" id="schools4">
+                        <div class="school-item">Lake View Primary ECDE</div>
+                        <div class="school-item">Kongoni ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
+                        <div class="school-item">Kiamathare ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                        <div class="school-item">Kiamathiriu ECDE</div>
+                        <div class="school-item">Kiamathua ECDE</div>
+                        <div class="school-item">Kiamathugu ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                    </div>
+                </div>
+                
+                <!-- Ward 5 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools5')">
+                        <h3 class="text-xl font-bold">Biashara Ward (12 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon5"></i>
+                    </div>
+                    <div class="school-list mt-4" id="schools5">
+                        <div class="school-item">Biashara Primary ECDE</div>
+                        <div class="school-item">Kiamunyeki ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
+                        <div class="school-item">Kiamathambo ECDE</div>
+                        <div class="school-item">Kiamathare ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                        <div class="school-item">Kiamathiriu ECDE</div>
+                        <div class="school-item">Kiamathua ECDE</div>
+                        <div class="school-item">Kiamathugu ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                    </div>
+                </div>
+                
+                <!-- Ward 6 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools6')">
+                        <h3 class="text-xl font-bold">Mirera Ward (11 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon6"></i>
+                    </div>
+                    <div class="school-list mt-4" id="schools6">
+                        <div class="school-item">Mirera Primary ECDE</div>
+                        <div class="school-item">Kiamunyeki ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
+                        <div class="school-item">Kiamathambo ECDE</div>
+                        <div class="school-item">Kiamathare ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                        <div class="school-item">Kiamathiriu ECDE</div>
+                        <div class="school-item">Kiamathua ECDE</div>
+                        <div class="school-item">Kiamathugu ECDE</div>
+                    </div>
+                </div>
+                
+                <!-- Ward 7 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools7')">
+                        <h3 class="text-xl font-bold">Kedong Ward (10 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon7"></i>
+                    </div>
+                    <div class="school-list mt-4" id="schools7">
+                        <div class="school-item">Kedong Primary ECDE</div>
+                        <div class="school-item">Kiamunyeki ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
+                        <div class="school-item">Kiamathambo ECDE</div>
+                        <div class="school-item">Kiamathare ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                        <div class="school-item">Kiamathiriu ECDE</div>
+                        <div class="school-item">Kiamathua ECDE</div>
+                    </div>
+                </div>
+                
+                <!-- Ward 8 -->
+                <div class="ward-container dark:bg-gray-800">
+                    <div class="ward-header" onclick="toggleSchoolList('schools8')">
+                        <h3 class="text-xl font-bold">Viwandani Ward (11 Schools)</h3>
+                        <i class="fas fa-chevron-down transition-transform" id="icon8"></i>
+                    </div>
+                    <div class="school-list mt-4" id="schools8">
+                        <div class="school-item">Viwandani Primary ECDE</div>
+                        <div class="school-item">Kiamunyeki ECDE</div>
+                        <div class="school-item">Kiamwangi ECDE</div>
+                        <div class="school-item">Kiamunyi ECDE</div>
+                        <div class="school-item">Kiamaina ECDE</div>
+                        <div class="school-item">Kiamathambo ECDE</div>
+                        <div class="school-item">Kiamathare ECDE</div>
+                        <div class="school-item">Kiamathiga ECDE</div>
+                        <div class="school-item">Kiamathiriu ECDE</div>
+                        <div class="school-item">Kiamathua ECDE</div>
+                        <div class="school-item">Kiamathugu ECDE</div>
                     </div>
                 </div>
             </div>
@@ -426,7 +474,7 @@
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="py-16 bg-white dark:bg-gray-900">
+    <section id="resources" class="py-16 bg-gray-50 dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4 text-ecde-green dark:text-ecde-yellow">Resources & Programs</h2>
             <p class="text-center max-w-2xl mx-auto mb-12">We provide various resources and programs to support ECDE teachers, parents, and learners.</p>
@@ -466,7 +514,7 @@
                 </div>
             </div>
             
-            <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow">
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow">
                 <h3 class="text-2xl font-semibold mb-6 text-center">Featured Program: School Feeding Initiative</h3>
                 <div class="flex flex-col md:flex-row items-center gap-8">
                     <div class="md:w-1/3 flex justify-center">
@@ -475,22 +523,22 @@
                         </div>
                     </div>
                     <div class="md:w-2/3">
-                        <p class="mb-4">Our school feeding program provides nutritious meals to 1,800 learners across 32 ECDE centers, improving attendance and concentration in class.</p>
+                        <p class="mb-4">Our school feeding program provides nutritious meals to 3,200 learners across 65 ECDE schools, improving attendance and concentration in class.</p>
                         <div class="grid grid-cols-2 gap-4 mt-6">
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-ecde-green">1,800</div>
+                                <div class="text-2xl font-bold text-ecde-green">3,200</div>
                                 <div class="text-sm">Learners Fed Daily</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-ecde-green">32</div>
-                                <div class="text-sm">Centers Participating</div>
+                                <div class="text-2xl font-bold text-ecde-green">65</div>
+                                <div class="text-sm">Schools Participating</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-ecde-green">18%</div>
+                                <div class="text-2xl font-bold text-ecde-green">22%</div>
                                 <div class="text-sm">Attendance Increase</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-ecde-green">96%</div>
+                                <div class="text-2xl font-bold text-ecde-green">94%</div>
                                 <div class="text-sm">Parent Satisfaction</div>
                             </div>
                         </div>
@@ -501,7 +549,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4 text-ecde-green dark:text-ecde-yellow">Contact Us</h2>
             <p class="text-center max-w-2xl mx-auto mb-12">Get in touch with the Naivasha Sub-County ECDE office for inquiries, support, or collaboration.</p>
@@ -509,20 +557,20 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
                     <h3 class="text-2xl font-semibold mb-6">Send Us a Message</h3>
-                    <form class="space-y-6">
+                    <form class="space-y-6" id="contactForm">
                         <div>
                             <label for="name" class="block font-medium mb-2">Your Name</label>
-                            <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600">
+                            <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600" required>
                         </div>
                         
                         <div>
                             <label for="email" class="block font-medium mb-2">Email Address</label>
-                            <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600">
+                            <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600" required>
                         </div>
                         
                         <div>
                             <label for="subject" class="block font-medium mb-2">Subject</label>
-                            <select id="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600">
+                            <select id="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600" required>
                                 <option value="">Select a subject</option>
                                 <option>General Inquiry</option>
                                 <option>ECDE Enrollment</option>
@@ -535,7 +583,7 @@
                         
                         <div>
                             <label for="message" class="block font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600"></textarea>
+                            <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecde-green focus:border-transparent dark:bg-gray-700 dark:border-gray-600" required></textarea>
                         </div>
                         
                         <button type="submit" class="w-full bg-ecde-green text-white py-3 rounded-lg font-semibold hover:bg-ecde-light transition-colors">
@@ -579,73 +627,4 @@
                         </div>
                     </div>
                     
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-                        <h4 class="font-semibold text-lg mb-4">ECDE Team Contacts</h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span>ECDE Coordinator:</span>
-                                <span class="font-medium">Florence Wanjiru</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Data Officer:</span>
-                                <span class="font-medium">Mary Mwangi</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Field Officers:</span>
-                                <span class="font-medium">Various Officers</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-ecde-green text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-child text-ecde-yellow text-2xl"></i>
-                        <div class="text-xl font-bold">Naivasha ECDE</div>
-                    </div>
-                    <p class="mb-4">Providing quality early childhood development education across Naivasha Sub-County.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-ecde-light rounded-full flex items-center justify-center hover:bg-ecde-yellow hover:text-ecde-green transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-ecde-light rounded-full flex items-center justify-center hover:bg-ecde-yellow hover:text-ecde-green transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-ecde-light rounded-full flex items-center justify-center hover:bg-ecde-yellow hover:text-ecde-green transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="hover:text-ecde-yellow transition-colors">Home</a></li>
-                        <li><a href="#about" class="hover:text-ecde-yellow transition-colors">About Us</a></li>
-                        <li><a href="#centers" class="hover:text-ecde-yellow transition-colors">ECDE Centers</a></li>
-                        <li><a href="#resources" class="hover:text-ecde-yellow transition-colors">Resources</a></li>
-                        <li><a href="#contact" class="hover:text-ecde-yellow transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Programs</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-ecde-yellow transition-colors">Teacher Training</a></li>
-                        <li><a href="#" class="hover:text-ecde-yellow transition-colors">School Feeding</a></li>
-                        <li><a href="#" class="hover:text-ecde-yellow transition-colors">Parent Education</a></li>
-                        <li><a href="#" class="hover:text-ecde-yellow transition-colors">Infrastructure Development</a></li>
-                        <li><a href="#" class="hover:text-ecde-yellow transition-colors">Digital Learning</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-                    <
+                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow">
