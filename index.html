@@ -75,30 +75,15 @@
             transform: translateY(0);
         }
         
-        .teacher-card {
-            perspective: 1000px;
+        .county-logo {
+            height: 60px;
+            width: auto;
         }
         
-        .teacher-inner {
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        
-        .teacher-card:hover .teacher-inner {
-            transform: rotateY(180deg);
-        }
-        
-        .teacher-front, .teacher-back {
-            backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .teacher-back {
-            transform: rotateY(180deg);
+        @media (max-width: 768px) {
+            .county-logo {
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -106,9 +91,21 @@
     <!-- Navigation -->
     <nav class="floating-nav bg-ecde-green text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-child text-ecde-yellow text-2xl"></i>
-                <div class="text-xl font-bold">Naivasha ECDE</div>
+            <div class="flex items-center space-x-4">
+                <!-- Kenya and Nakuru County Logos -->
+                <div class="flex items-center space-x-2">
+                    <div class="county-logo bg-white rounded-full p-1 flex items-center justify-center">
+                        <div class="text-ecde-green font-bold text-xs text-center px-1">NAKURU<br>COUNTY</div>
+                    </div>
+                    <div class="county-logo bg-white rounded-full p-1 flex items-center justify-center">
+                        <div class="text-ecde-green font-bold text-xs text-center px-1">REPUBLIC<br>OF KENYA</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-child text-ecde-yellow text-2xl"></i>
+                    <div class="text-xl font-bold">Naivasha ECDE</div>
+                </div>
             </div>
             
             <div class="hidden md:flex space-x-6">
@@ -176,8 +173,8 @@
                 </div>
                 
                 <div class="stat-card bg-ecde-blue text-white p-6 rounded-lg shadow text-center">
-                    <div class="text-3xl font-bold mb-2">2,4500</div>
-                    <div class="text-lg">Enrolled Children</div>
+                    <div class="text-3xl font-bold mb-2">2,450</div>
+                    <div class="text-lg">Enrolled Learners</div>
                     <i class="fas fa-child text-ecde-yellow text-2xl mt-4"></i>
                 </div>
                 
@@ -197,33 +194,43 @@
             
             <div class="flex flex-col md:flex-row items-center gap-8 mb-12">
                 <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4">Our Vision</h3>
+                    <p class="mb-6 text-lg">A high quality education for sustainable development.</p>
+                    
                     <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
-                    <p class="mb-4">To provide quality early childhood education through data-driven insights, community engagement, and sustainable development practices that nurture every child's potential.</p>
-                    <p>We believe that investing in early childhood education lays the foundation for lifelong learning, well-being, and community development.</p>
+                    <p class="mb-4">To provide quality education of curriculum based education in pre primary schools.</p>
                 </div>
                 <div class="md:w-1/2 bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-ecde-yellow rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-bullseye text-ecde-green text-xl"></i>
+                            <i class="fas fa-star text-ecde-green text-xl"></i>
                         </div>
-                        <h4 class="text-xl font-semibold">Strategic Goals</h4>
+                        <h4 class="text-xl font-semibold">Our Core Values</h4>
                     </div>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-check text-ecde-green mt-1 mr-2"></i>
-                            <span>Increase ECDE enrollment to 95% by 2026</span>
+                            <span>Quality Education</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-ecde-green mt-1 mr-2"></i>
-                            <span>Train 100% of ECDE teachers in modern pedagogy</span>
+                            <span>Child-Centered Approach</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-ecde-green mt-1 mr-2"></i>
-                            <span>Improve infrastructure in all ECDE centers</span>
+                            <span>Professionalism</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-ecde-green mt-1 mr-2"></i>
-                            <span>Enhance parental involvement in early education</span>
+                            <span>Integrity and Accountability</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-ecde-green mt-1 mr-2"></i>
+                            <span>Community Partnership</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-ecde-green mt-1 mr-2"></i>
+                            <span>Innovation and Creativity</span>
                         </li>
                     </ul>
                 </div>
@@ -245,7 +252,7 @@
                         <i class="fas fa-heart text-white text-2xl"></i>
                     </div>
                     <h4 class="text-xl font-semibold mb-3">Health & Nutrition</h4>
-                    <p>Providing school feeding programs and health checks to ensure children's wellbeing.</p>
+                    <p>Providing school feeding programs and health checks to ensure learners' wellbeing.</p>
                 </div>
                 
                 <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow text-center">
@@ -273,10 +280,10 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Lakeview ECDE Center</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Located near Lake Naivasha, this center serves 85 children with modern facilities.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Located near Lake Naivasha, this center serves 85 learners with modern facilities.</p>
                         <div class="flex justify-between text-sm">
                             <span class="flex items-center">
-                                <i class="fas fa-child mr-1 text-ecde-green"></i> 85 Children
+                                <i class="fas fa-child mr-1 text-ecde-green"></i> 85 Learners
                             </span>
                             <span class="flex items-center">
                                 <i class="fas fa-user-graduate mr-1 text-ecde-green"></i> 4 Teachers
@@ -292,10 +299,10 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Karagita ECDE Center</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Serving the Karagita community with a focus on inclusive education for all children.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Serving the Karagita community with a focus on inclusive education for all learners.</p>
                         <div class="flex justify-between text-sm">
                             <span class="flex items-center">
-                                <i class="fas fa-child mr-1 text-ecde-green"></i> 72 Children
+                                <i class="fas fa-child mr-1 text-ecde-green"></i> 72 Learners
                             </span>
                             <span class="flex items-center">
                                 <i class="fas fa-user-graduate mr-1 text-ecde-green"></i> 3 Teachers
@@ -314,7 +321,7 @@
                         <p class="text-gray-600 dark:text-gray-300 mb-4">A model center with innovative learning spaces and parental involvement programs.</p>
                         <div class="flex justify-between text-sm">
                             <span class="flex items-center">
-                                <i class="fas fa-child mr-1 text-ecde-green"></i> 94 Children
+                                <i class="fas fa-child mr-1 text-ecde-green"></i> 94 Learners
                             </span>
                             <span class="flex items-center">
                                 <i class="fas fa-user-graduate mr-1 text-ecde-green"></i> 5 Teachers
@@ -371,7 +378,7 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-2xl font-semibold mb-6">Performance Metrics</h3>
+                    <h3 class="text-2xl font-semibold mb-6">Current Status</h3>
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between mb-1">
@@ -415,56 +422,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <i class="fas fa-chart-line text-ecde-green mr-2"></i> Key Achievements
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-star text-ecde-yellow mt-1 mr-2"></i>
-                            <span>Increased enrollment by 24% over the last 3 years</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-star text-ecde-yellow mt-1 mr-2"></i>
-                            <span>Reduced dropout rate to below 5%</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-star text-ecde-yellow mt-1 mr-2"></i>
-                            <span>Established 5 new ECDE centers in underserved areas</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-star text-ecde-yellow mt-1 mr-2"></i>
-                            <span>Trained 92% of teachers in modern ECDE methodologies</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-4 flex items-center">
-                        <i class="fas fa-bullseye text-ecde-green mr-2"></i> Future Targets
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-flag text-ecde-blue mt-1 mr-2"></i>
-                            <span>Reach 3,000 enrolled children by 2025</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-flag text-ecde-blue mt-1 mr-2"></i>
-                            <span>Establish 10 more ECDE centers in remote areas</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-flag text-ecde-blue mt-1 mr-2"></i>
-                            <span>Implement digital learning in all centers by 2026</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-flag text-ecde-blue mt-1 mr-2"></i>
-                            <span>Achieve 100% parental involvement in school activities</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -472,7 +429,7 @@
     <section id="resources" class="py-16 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4 text-ecde-green dark:text-ecde-yellow">Resources & Programs</h2>
-            <p class="text-center max-w-2xl mx-auto mb-12">We provide various resources and programs to support ECDE teachers, parents, and children.</p>
+            <p class="text-center max-w-2xl mx-auto mb-12">We provide various resources and programs to support ECDE teachers, parents, and learners.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div class="bg-ecde-green text-white p-6 rounded-lg shadow">
@@ -502,7 +459,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Parent Resources</h3>
-                    <p>Guidance and materials to help parents support their children's early development.</p>
+                    <p>Guidance and materials to help parents support their learners' early development.</p>
                     <a href="#" class="inline-block mt-4 bg-ecde-yellow text-ecde-green px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition-colors">
                         Explore <i class="fas fa-arrow-right ml-1"></i>
                     </a>
@@ -518,11 +475,11 @@
                         </div>
                     </div>
                     <div class="md:w-2/3">
-                        <p class="mb-4">Our school feeding program provides nutritious meals to 1,800 children across 32 ECDE centers, improving attendance and concentration in class.</p>
+                        <p class="mb-4">Our school feeding program provides nutritious meals to 1,800 learners across 32 ECDE centers, improving attendance and concentration in class.</p>
                         <div class="grid grid-cols-2 gap-4 mt-6">
                             <div class="text-center">
                                 <div class="text-2xl font-bold text-ecde-green">1,800</div>
-                                <div class="text-sm">Children Fed Daily</div>
+                                <div class="text-sm">Learners Fed Daily</div>
                             </div>
                             <div class="text-center">
                                 <div class="text-2xl font-bold text-ecde-green">32</div>
@@ -597,27 +554,17 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-lg">Our Address</h4>
-                                <p>Naivasha Sub-County Education Office<br>P.O. Box 123-20117, Naivasha, Kenya</p>
+                                <p>Naivasha Sub-County Education Office<br>P.O. Box 316, Naivasha, Kenya</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-ecde-light rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-phone-alt text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg">Phone Numbers</h4>
-                                <p>xxxxxxx<br>xxxxxxx</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-ecde-blue rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fas fa-envelope text-white"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-lg">Email Address</h4>
-                                <p>ecde@naivasha.go.ke<br>info@naivashaecde.org</p>
+                                <p>preprimaryecde2025@gmail.com</p>
                             </div>
                         </div>
                         
@@ -701,128 +648,4 @@
                 
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-                    <p class="mb-4">Subscribe to our newsletter for updates on ECDE programs and events.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-gray-800 focus:outline-none">
-                        <button class="bg-ecde-yellow text-ecde-green px-4 rounded-r-lg font-semibold hover:bg-yellow-400 transition-colors">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-ecde-light mt-8 pt-8 text-center">
-                <p>&copy; 2023 Naivasha Sub-County ECDE. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menuBtn').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        });
-        
-        // Dark mode toggle
-        document.getElementById('darkToggle').addEventListener('click', function() {
-            document.documentElement.classList.toggle('dark');
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                this.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                localStorage.setItem('theme', 'light');
-                this.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        });
-        
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-            document.getElementById('darkToggle').innerHTML = '<i class="fas fa-sun"></i>';
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.getElementById('mobileMenu').classList.add('hidden');
-                }
-            });
-        });
-        
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check in case elements are already in view
-        fadeInOnScroll();
-        
-        // Form submission
-        const contactForm = document.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            });
-        }
-        
-        // Update stats with animation
-        function animateValue(element, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                element.innerHTML = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        // Animate stats when they come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statElements = entry.target.querySelectorAll('.stat-card .text-3xl');
-                    statElements.forEach((el, index) => {
-                        const values = [42, 86, 2450, 15];
-                        setTimeout(() => {
-                            animateValue(el, 0, values[index], 2000);
-                        }, index * 300);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        const statsSection = document.querySelector('.bg-white');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-    </script>
-</body>
-                      </html>
+                    <
